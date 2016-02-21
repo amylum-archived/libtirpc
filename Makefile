@@ -35,9 +35,9 @@ container:
 
 deps:
 	rm -rf $(DEP_DIR)
-	mkdir -p $(DEP_DIR)/usr/include/{sys,asm}
+	mkdir -p $(DEP_DIR)/usr/include/sys
 	cp -R /usr/include/sys/queue.h $(DEP_DIR)/usr/include/sys/
-	cp -R /usr/include/asm/types.h $(DEP_DIR)/usr/include/asm/
+	cp -R /usr/include/{asm,asm-generic} $(DEP_DIR)/usr/include/
 	rm -rf $(KRB5_DIR) $(KRB5_TAR)
 	mkdir $(KRB5_DIR)
 	curl -sLo $(KRB5_TAR) $(KRB5_URL)
