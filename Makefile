@@ -46,6 +46,7 @@ deps:
 build: submodule deps
 	rm -rf $(BUILD_DIR)
 	cp -R upstream $(BUILD_DIR)
+	patch -d $(BUILD_DIR) -p1 < patches/nis.patch
 	patch -d $(BUILD_DIR) -p1 < patches/add_missing_rwlock_unlocks_in_xprt_register.patch
 	cd $(BUILD_DIR) && autoreconf -i
 	cd $(BUILD_DIR) && CC=musl-gcc CFLAGS='$(CFLAGS) $(KRB5_PATH)' ./configure $(PATH_FLAGS) $(CONF_FLAGS)
