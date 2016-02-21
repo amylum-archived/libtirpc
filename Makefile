@@ -1,12 +1,14 @@
 PACKAGE = libtirpc
 ORG = amylum
 
+DEP_DIR = /tmp/dep-dir
+
 BUILD_DIR = /tmp/$(PACKAGE)-build
 RELEASE_DIR = /tmp/$(PACKAGE)-release
 RELEASE_FILE = /tmp/$(PACKAGE).tar.gz
 PATH_FLAGS = --prefix=/usr
 CONF_FLAGS =
-CFLAGS = -static -static-libgcc -Wl,-static
+CFLAGS = -static -static-libgcc -Wl,-static -I$(DEP_DIR)/usr/include
 
 PACKAGE_VERSION = $$(git --git-dir=upstream/.git describe --tags | sed 's/libtirpc-//;s/-/./g')
 PATCH_VERSION = $$(cat version)
@@ -32,6 +34,9 @@ container:
 	./meta/launch
 
 deps:
+	rm -rf $(DEP_DIR)
+	mkdir -p $(DEP_DIR)/usr/include/
+	cp -R /usr/include/sys $(DEP_DIR)/usr/include/
 	rm -rf $(KRB5_DIR) $(KRB5_TAR)
 	mkdir $(KRB5_DIR)
 	curl -sLo $(KRB5_TAR) $(KRB5_URL)
