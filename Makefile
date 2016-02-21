@@ -35,8 +35,8 @@ container:
 
 deps:
 	rm -rf $(DEP_DIR)
-	mkdir -p $(DEP_DIR)/usr/include/
-	cp -R /usr/include/{sys,bits} $(DEP_DIR)/usr/include/
+	mkdir -p $(DEP_DIR)/usr/include/sys
+	cp -R /usr/include/sys/queue.h $(DEP_DIR)/usr/include/sys/
 	rm -rf $(KRB5_DIR) $(KRB5_TAR)
 	mkdir $(KRB5_DIR)
 	curl -sLo $(KRB5_TAR) $(KRB5_URL)
