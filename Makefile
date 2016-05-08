@@ -8,7 +8,7 @@ RELEASE_DIR = /tmp/$(PACKAGE)-release
 RELEASE_FILE = /tmp/$(PACKAGE).tar.gz
 PATH_FLAGS = --prefix=/usr
 CONF_FLAGS =
-CFLAGS = -static -static-libgcc -Wl,-static -I$(DEP_DIR)/usr/include -fPIC
+CFLAGS = -I$(DEP_DIR)/usr/include -fPIC
 
 PACKAGE_VERSION = $$(git --git-dir=upstream/.git describe --tags | sed 's/libtirpc-//;s/-/./g')
 PATCH_VERSION = $$(cat version)
