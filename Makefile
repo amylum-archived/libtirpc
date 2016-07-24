@@ -20,6 +20,12 @@ KRB5_TAR = /tmp/krb5.tar.gz
 KRB5_DIR = /tmp/krb5
 KRB5_PATH = -I$(KRB5_DIR)/usr/include -L$(KRB5_DIR)/usr/lib
 
+OPENSSL_VERSION = 1.0.2h-7
+OPENSSL_URL = https://github.com/amylum/openssl/releases/download/$(OPENSSL_VERSION)/openssl.tar.gz
+OPENSSL_TAR = /tmp/openssl.tar.gz
+OPENSSL_DIR = /tmp/openssl
+OPENSSL_PATH = -I$(OPENSSL_DIR)/usr/include -L$(OPENSSL_DIR)/usr/lib -lcrypto
+
 .PHONY : default submodule deps manual container deps build version push local
 
 default: submodule container
@@ -42,6 +48,10 @@ deps:
 	mkdir $(KRB5_DIR)
 	curl -sLo $(KRB5_TAR) $(KRB5_URL)
 	tar -x -C $(KRB5_DIR) -f $(KRB5_TAR)
+	rm -rf $(OPENSSL_DIR) $(OPENSSL_TAR)
+	mkdir $(OPENSSL_DIR)
+	curl -sLo $(OPENSSL_TAR) $(OPENSSL_URL)
+	tar -x -C $(OPENSSL_DIR) -f $(OPENSSL_TAR)
 
 build: submodule deps
 	rm -rf $(BUILD_DIR)
@@ -50,7 +60,7 @@ build: submodule deps
 	patch -d $(BUILD_DIR) -p1 < patches/musl-fixes.patch
 	patch -d $(BUILD_DIR) -p1 < patches/add_missing_rwlock_unlocks_in_xprt_register.patch
 	cd $(BUILD_DIR) && autoreconf -i
-	cd $(BUILD_DIR) && CC=musl-gcc CFLAGS='$(CFLAGS) $(KRB5_PATH)' ./configure $(PATH_FLAGS) $(CONF_FLAGS)
+	cd $(BUILD_DIR) && CC=musl-gcc CFLAGS='$(CFLAGS) $(KRB5_PATH) $(OPENSSL_PATH)' ./configure $(PATH_FLAGS) $(CONF_FLAGS)
 	cd $(BUILD_DIR) && make DESTDIR=$(RELEASE_DIR) install
 	mkdir -p $(RELEASE_DIR)/usr/share/licenses/$(PACKAGE)
 	cp $(BUILD_DIR)/COPYING $(RELEASE_DIR)/usr/share/licenses/$(PACKAGE)/LICENSE
