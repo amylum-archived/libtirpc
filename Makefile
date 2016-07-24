@@ -14,7 +14,7 @@ PACKAGE_VERSION = $$(git --git-dir=upstream/.git describe --tags | sed 's/libtir
 PATCH_VERSION = $$(cat version)
 VERSION = $(PACKAGE_VERSION)-$(PATCH_VERSION)
 
-KRB5_VERSION = 1.14.2-5
+KRB5_VERSION = 1.14.3-6
 KRB5_URL = https://github.com/amylum/krb5/releases/download/$(KRB5_VERSION)/krb5.tar.gz
 KRB5_TAR = /tmp/krb5.tar.gz
 KRB5_DIR = /tmp/krb5
