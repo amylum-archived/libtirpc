@@ -16,6 +16,7 @@ configure_flags(
 cflags
 harden
 
+patch 'remove-des-functionality.patch'
 patch '0006-fix_queue_h_include.patch'
 
 build do
