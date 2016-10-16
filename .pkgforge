@@ -16,12 +16,6 @@ configure_flags(
 cflags
 harden
 
-patch 'nis.patch'
-patch 'musl-fixes.patch'
-patch 'add_missing_rwlock_unlocks_in_xprt_register.patch'
-patch '0006-fix_queue_h_include.patch'
-patch '0007-no-des.patch'
-
 build do
   run 'autoreconf -i'
   configure
