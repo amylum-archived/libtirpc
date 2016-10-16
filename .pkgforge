@@ -19,6 +19,7 @@ harden
 patch 'nis.patch'
 patch 'musl-fixes.patch'
 patch 'add_missing_rwlock_unlocks_in_xprt_register.patch'
+patch '0006-fix_queue_h_include.patch'
 
 build do
   run 'autoreconf -i'
