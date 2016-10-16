@@ -1,0 +1,32 @@
+name 'libtirpc'
+org 'amylum'
+
+licenses 'COPYING'
+
+deps(
+  krb5: '1.14.3-6',
+  openssl: '1.0.2h-7',
+  'linux-api-headers': '4.8-rc6-2'
+)
+
+configure_flags(
+  prefix: '/usr'
+)
+
+cflags
+harden
+
+patch 'nis.patch'
+patch 'musl-fixes.patch'
+patch 'add_missing_rwlock_unlocks_in_xprt_register.patch'
+
+build do
+  run 'autoreconf -i'
+  configure
+  make
+  install
+end
+
+test do
+  # TODO: add tests
+end
