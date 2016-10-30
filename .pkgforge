@@ -4,9 +4,9 @@ org 'amylum'
 licenses 'COPYING'
 
 deps(
-  krb5: '1.14.3-6',
+  krb5: '1.14.4-1',
   openssl: '1.0.2h-7',
-  'linux-api-headers': '4.8-rc6-2'
+  'linux-api-headers': '4.9-rc3-2'
 )
 
 configure_flags(
