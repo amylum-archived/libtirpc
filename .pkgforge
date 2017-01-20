@@ -5,8 +5,8 @@ licenses 'COPYING'
 
 deps(
   krb5: '1.15-2',
-  openssl: '1.0.2j-3',
-  'linux-api-headers': '4.9-1'
+  openssl: '1.0.2j-4',
+  'linux-api-headers': '4.9.5-1'
 )
 
 configure_flags(
