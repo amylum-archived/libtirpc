@@ -17,7 +17,6 @@ cflags
 harden
 
 patch 'Use-netbsd-queue.h.patch'
-patch 'add_missing_rwlock_unlocks_in_xprt_register.patch'
 patch 'libtirpc-0.2.1-fortify.patch'
 patch 'remove-des-functionality.patch'
 
