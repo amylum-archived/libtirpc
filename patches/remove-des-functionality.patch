@@ -6,42 +6,9 @@ Signed-off-by: Khem Raj <raj.khem@gmail.com>
 Signed-off-by: Thomas Petazzoni <thomas.petazzoni@free-electrons.com>
 Signed-off-by: Maxin B. John <maxin.john@intel.com>
 ---
-diff -Naur libtirpc-1.0.1-orig/src/Makefile.am libtirpc-1.0.1/src/Makefile.am
---- libtirpc-1.0.1-orig/src/Makefile.am	2015-10-30 17:15:14.000000000 +0200
-+++ libtirpc-1.0.1/src/Makefile.am	2015-12-21 15:56:17.094702429 +0200
-@@ -22,9 +22,8 @@
-         pmap_prot.c pmap_prot2.c pmap_rmt.c rpc_prot.c rpc_commondata.c \
-         rpc_callmsg.c rpc_generic.c rpc_soc.c rpcb_clnt.c rpcb_prot.c \
-         rpcb_st_xdr.c svc.c svc_auth.c svc_dg.c svc_auth_unix.c svc_auth_none.c \
--	svc_auth_des.c \
-         svc_generic.c svc_raw.c svc_run.c svc_simple.c svc_vc.c getpeereid.c \
--        auth_time.c auth_des.c authdes_prot.c debug.c
-+        debug.c
- 
- ## XDR
- libtirpc_la_SOURCES += xdr.c xdr_rec.c xdr_array.c xdr_float.c xdr_mem.c xdr_reference.c xdr_stdio.c xdr_sizeof.c
-@@ -41,8 +40,8 @@
-     libtirpc_la_CFLAGS = -DHAVE_RPCSEC_GSS $(GSSAPI_CFLAGS)
- endif
- 
--libtirpc_la_SOURCES += key_call.c key_prot_xdr.c getpublickey.c
--libtirpc_la_SOURCES += netname.c netnamer.c rpcdname.c rtime.c
-+#libtirpc_la_SOURCES += key_call.c key_prot_xdr.c getpublickey.c
-+#libtirpc_la_SOURCES += netname.c netnamer.c rpcdname.c rtime.c
- 
- CLEANFILES	       = cscope.* *~
- DISTCLEANFILES	       = Makefile.in
 diff -Naur libtirpc-1.0.1-orig/src/rpc_soc.c libtirpc-1.0.1/src/rpc_soc.c
 --- libtirpc-1.0.1-orig/src/rpc_soc.c	2015-10-30 17:15:14.000000000 +0200
 +++ libtirpc-1.0.1/src/rpc_soc.c	2015-12-21 15:56:17.095702416 +0200
-@@ -61,7 +61,6 @@
- #include <string.h>
- #include <unistd.h>
- #include <fcntl.h>
--#include <rpcsvc/nis.h>
- 
- #include "rpc_com.h"
- 
 @@ -522,86 +521,6 @@
  }
  
@@ -142,3 +109,18 @@ diff -Naur libtirpc-1.0.1-orig/src/svc_auth.c libtirpc-1.0.1/src/svc_auth.c
  #ifdef HAVE_RPCSEC_GSS
  	case RPCSEC_GSS:
  		dummy = _svcauth_gss(rqst, msg, no_dispatch);
+diff --git a/src/Makefile.am b/src/Makefile.am
+index fba2aa4..57500f9 100644
+--- a/src/Makefile.am
++++ b/src/Makefile.am
+@@ -22,9 +22,8 @@ libtirpc_la_SOURCES = auth_none.c auth_unix.c authunix_prot.c bindresvport.c cln
+         pmap_prot.c pmap_prot2.c pmap_rmt.c rpc_prot.c rpc_commondata.c \
+         rpc_callmsg.c rpc_generic.c rpc_soc.c rpcb_clnt.c rpcb_prot.c \
+         rpcb_st_xdr.c svc.c svc_auth.c svc_dg.c svc_auth_unix.c svc_auth_none.c \
+-	svc_auth_des.c \
+         svc_generic.c svc_raw.c svc_run.c svc_simple.c svc_vc.c getpeereid.c \
+-        auth_time.c auth_des.c authdes_prot.c debug.c des_crypt.c des_impl.c
++        auth_time.c debug.c
+ 
+ ## XDR
+ libtirpc_la_SOURCES += xdr.c xdr_rec.c xdr_array.c xdr_float.c xdr_mem.c xdr_reference.c xdr_stdio.c xdr_sizeof.c
