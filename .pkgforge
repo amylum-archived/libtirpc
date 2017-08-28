@@ -4,9 +4,18 @@ org 'amylum'
 licenses 'COPYING'
 
 deps(
-  krb5: '1.15.1-1',
-  openssl: '1.0.2l-1',
-  'linux-api-headers': '4.12-1'
+  krb5: {
+    version: '1.15.1-1',
+    checksum: 'edf36e1eefe1d581e84efc7f7038389024a35fdf1da07c7f56b3d0ef6c19a8ba'
+  },
+  openssl: {
+    version: '1.0.2l-1',
+    checksum: '6a46a1a65aa5cadc69a2b01e3ef8fa0a38353f3f7b86c1a772ab5156dd5b2264'
+  },
+  'linux-api-headers': {
+    version: '4.12-1',
+    checksum: '25d3672456a93cc7f6743d4b2c227ad7a9456f4ec2a9f09ab7f2e9e6cb56aeaa'
+  }
 )
 
 configure_flags(
