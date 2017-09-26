@@ -5,8 +5,8 @@ licenses 'COPYING'
 
 deps(
   krb5: {
-    version: '1.15.1-1',
-    checksum: 'edf36e1eefe1d581e84efc7f7038389024a35fdf1da07c7f56b3d0ef6c19a8ba'
+    version: '1.15.2-1',
+    checksum: 'e26511eec7695d1a4ec64240e42aab8643e7d5a7bf530ca15cc91888c322b141'
   },
   openssl: {
     version: '1.0.2l-1',
