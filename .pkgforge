@@ -9,8 +9,8 @@ deps(
     checksum: 'e26511eec7695d1a4ec64240e42aab8643e7d5a7bf530ca15cc91888c322b141'
   },
   openssl: {
-    version: '1.0.2m-1',
-    checksum: '263c64d3c4cde7f0f695a08453738842ceb6f2273882123e10ba4bbad619f9e0'
+    version: '1.1.0g-1',
+    checksum: 'f70d94ca94f05be4a14438cf29ed4695d9731d023a4b72d30126d826720bc48b'
   },
   'linux-api-headers': {
     version: '4.14-1',
