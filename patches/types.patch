@@ -1,0 +1,13 @@
+diff --git a/tirpc/rpc/types.h b/tirpc/rpc/types.h
+index f069efa..1d8aab1 100644
+--- a/tirpc/rpc/types.h
++++ b/tirpc/rpc/types.h
+@@ -66,7 +66,7 @@ typedef   int32_t rpc_inline_t;
+ #define mem_free(ptr, bsize)	free(ptr)
+ 
+ 
+-#if defined __APPLE_CC__ || defined __FreeBSD__
++#if defined __APPLE_CC__ || defined __FreeBSD__ || defined(_GNU_SOURCE) || defined(_BSD_SOURCE)
+ # define __u_char_defined
+ # define __daddr_t_defined
+ #endif

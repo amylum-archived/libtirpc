@@ -27,6 +27,7 @@ harden
 
 patch 'Use-netbsd-queue.h.patch'
 patch 'remove-des-functionality.patch'
+patch 'types.patch'
 
 build do
   run 'autoreconf -i'
