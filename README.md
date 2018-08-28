@@ -1,7 +1,7 @@
 libtirpc
 ==========
 
-[![Build Status](https://img.shields.io/circleci/project/amylum/libtirpc/master.svg)](https://circleci.com/gh/amylum/libtirpc)
+[![Build Status](https://img.shields.io/travis/com/amylum/libtirpc.svg)](https://travis-ci.com/amylum/libtirpc)
 [![GitHub release](https://img.shields.io/github/release/amylum/libtirpc.svg)](https://github.com/amylum/libtirpc/releases)
 [![BSD Licensed](http://img.shields.io/badge/license-BSD-green.svg)](https://tldrlegal.com/license/bsd-3-clause-license-(revised))
 
